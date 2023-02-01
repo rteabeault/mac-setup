@@ -1,0 +1,10 @@
+- name: Create calibre preferences dir
+  ansible.builtin.file:
+    path: ~/Library/Preferences/calibre
+    state: directory
+
+- name: Create a symbolic link
+  ansible.builtin.file:
+    src: "{{ calibre_env_file }}"
+    dest: ~/Library/Preferences/calibre/macos-env.txt
+    state: link

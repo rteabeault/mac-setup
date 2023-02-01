@@ -1,0 +1,5 @@
+---
+
+- name: Install Nerd Fonts
+  include_tasks: install.yaml
+  with_items: "{{ nerd_fonts }}"

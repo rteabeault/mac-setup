@@ -1,0 +1,15 @@
+---
+
+- hosts: localhost
+  
+  vars_files:
+    - default_config.yaml
+
+  roles:
+    - geerlingguy.mac.homebrew
+    - dirs
+    - dotfiles
+    - nerdfonts
+    - osx_defaults
+    - moom
+    - calibre

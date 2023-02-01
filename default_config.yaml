@@ -1,0 +1,96 @@
+---
+
+dirs:
+  - { path: ~/.config, mode: "0755" }
+
+dotfiles_repo: https://github.com/rteabeault/dotfiles.git
+dotfiles_repo_accept_hostkey: true
+dotfiles_repo_version: main
+dotfiles_repo_local_destination: ~/.dotfiles
+dotfiles_files:
+  - { src: zshrc, dest: ~/.zshrc }
+  - { src: zprofile, dest: ~/.zprofile }
+  # Antibody file for zsh plugins
+  - { src: zsh_plugins.txt, dest: ~/.zsh_plugins.txt }
+  # Powerlevel10k prompt config
+  - { src: p10k.zsh, dest: ~/.p10k.zsh }
+  # Neovim config
+  - { src: nvim, dest: ~/.config/nvim }
+
+moom_plist_file: ~/.dotfiles/moom/moom.plist
+calibre_env_file: ~/.dotfiles/calibre/macos-env.txt
+
+homebrew_installed_packages:
+  - antidote
+  - hub
+  - neovim
+  - tree
+
+homebrew_cask_apps:
+  - 1password
+  - Alfred
+  - Calibre
+  - Discord
+  - Docker
+  - Dropbox
+  - Google-chrome
+  - Iterm2
+  - Moom
+  - Obsidian
+  - Signal
+  - Slack
+  - Spotify
+
+nerd_fonts_version: 2.3.3
+nerd_fonts_url: https://github.com/ryanoasis/nerd-fonts/releases/download/v{{nerd_fonts_version}}
+nerd_fonts:
+  - FiraCode
+  - Mononoki
+  - Meslo
+
+# https://macos-defaults.com/
+osx_defaults:
+  # Autohide the dock
+  - { domain: com.apple.dock, key: autohide, type: bool, value: true, state: present }
+
+  # Enable dock magnification
+  - { domain: com.apple.dock, key: magnification, type: bool, value: true, state: present }
+
+  # Set normal size of dock
+  - { domain: com.apple.dock, key: tilesize, type: int, value: 40, state: present }
+ 
+  # Set magnified size of dock
+  - { domain: com.apple.dock, key: largesize, type: int, value: 60, state: present }
+
+    # Remove screenshot shadow
+  - { domain: com.apple.screencapture, key: disable-shadow, type: bool, value: true, state: present }
+ 
+  # Place screenshots in Pictures folder
+  - { domain: com.apple.screencapture, key: location, type: string, value: "~/Pictures", state: present }
+
+  # Set screenshot to JPEG format
+  # png, jpg, pdf, psd, gif, tga, tiff, bmp
+  - { domain: com.apple.screencapture, key: location, type: string, value: "jpg", state: present }
+
+  # Show hidden files in finder
+  - { domain: com.apple.finder, key: AppleShowAllFiles, type: bool, value: true, state: present }
+
+  # Show path in bottom of finder
+  - { domain: com.apple.finder, key: ShowPathbar, type: bool, value: true, state: present }
+
+  # Set default finder view to column
+  # clmv - Column view
+  # nlsv - List view
+  # glyv - Gallery view
+  # icnv - Icon view
+  - { domain: com.apple.finder, key: FXPreferredViewStyle, type: string, value: clmv, state: present }
+
+  # Set delay until initial repeat
+  - { domain: NSGlobalDomain, key: InitialKeyRepeat, type: int, value: 15, state: present }
+
+  # Set rate that keys repeat
+  - { domain: NSGlobalDomain, key: KeyRepeat, type: int, value: 2, state: present }
+
+  # Set iterm to read from dotfiles in ~/.dotfiles
+  - { domain: com.googlecode.iterm2, key: PrefsCustomFolder, type: string, value: "~/.dotfiles/iTerm2", state: present }
+  - { domain: com.googlecode.iterm2, key: LoadPrefsFromCustomFolder, type: bool, value: true, state: present }

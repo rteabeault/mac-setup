@@ -1,0 +1,5 @@
+---
+
+# Export settings: defaults export com.manytricks.Moom ~/projects/dotfiles/Moom/Moom.plist
+- name: Import Moom plist
+  command: "defaults import com.manytricks.Moom {{ moom_plist_file }}"

@@ -1,0 +1,15 @@
+---
+
+- name: Creating nerd font {{ item }} directory 
+  file:
+    path: "{{ lookup('env', 'HOME') }}/Library/Fonts/{{ item }}"
+    state: directory
+    mode: '0700'
+
+- name: "Install nerd font {{ item }}"
+  unarchive:
+    src: "{{ nerd_fonts_url }}/{{ item }}.zip"
+    dest: "{{ lookup('env', 'HOME') }}/Library/Fonts/{{ item }}"
+    creates: "{{ lookup('env', 'HOME') }}/Library/Fonts/{{ item }}/readme.md"
+    exclude: "*Windows Compatible*"
+    remote_src: yes

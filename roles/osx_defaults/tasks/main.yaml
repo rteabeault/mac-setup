@@ -1,0 +1,10 @@
+---
+
+- name: Set OSX defaults
+  community.general.osx_defaults:
+    domain: "{{ item.domain }}"
+    key: "{{ item.key }}"
+    type: "{{ item.type }}"
+    value: "{{ item.value }}"
+    state: "{{ item.state }}"
+  with_items: "{{ osx_defaults }}"
