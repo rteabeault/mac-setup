@@ -8,7 +8,8 @@ dotfiles_repo_accept_hostkey: true
 dotfiles_repo_version: main
 dotfiles_repo_local_destination: ~/.dotfiles
 dotfiles_files:
-  - { src: zshrc, dest: ~/.zshrc }
+  - { src: zshenv, dest: ~/.zshenv }
+  - { src: zshrc, dest: ~/.zshrc } 
   - { src: zprofile, dest: ~/.zprofile }
   # Antibody file for zsh plugins
   - { src: zsh_plugins.txt, dest: ~/.zsh_plugins.txt }
@@ -22,21 +23,24 @@ calibre_env_file: ~/.dotfiles/calibre/macos-env.txt
 
 homebrew_installed_packages:
   - antidote
+  - ffmpeg
   - hub
   - neovim
   - tree
+  - yt-dlp
 
 homebrew_cask_apps:
   - 1password
   - Alfred
+  - Anki
   - Calibre
   - Discord
   - Docker
   - Dropbox
   - Google-chrome
   - Iterm2
-  - Moom
   - Obsidian
+  - Rectangle-pro
   - Signal
   - Slack
   - Spotify
